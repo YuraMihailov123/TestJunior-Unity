@@ -265,11 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragSpeed: 2
-  zoomSpeed: 1
-  targetOrtho: 0
-  smoothSpeed: 2
-  minOrtho: 1
-  maxOrtho: 20
 --- !u!1 &549394536
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +695,7 @@ MonoBehaviour:
   path: 
   jsonString: 
   mapPrefab: {fileID: 0}
+  mapGameobjects: []
 --- !u!1 &1706529251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1062,7 @@ MonoBehaviour:
   manualHeight: 1080
   minimumHeight: 320
   maximumHeight: 1536
-  fitWidth: 0
+  fitWidth: 1
   fitHeight: 1
   adjustByDPI: 0
   shrinkPortraitUI: 0

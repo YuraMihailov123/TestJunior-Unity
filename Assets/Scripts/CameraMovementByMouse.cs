@@ -4,22 +4,48 @@ using UnityEngine;
 
 public class CameraMovementByMouse : MonoBehaviour
 {
-    public float dragSpeed = 0.1f;
+    public float dragSpeed = 0.01f;
     private Vector3 dragOrigin;
 
-    public float zoomSpeed = 1;
-    public float targetOrtho;
-    public float smoothSpeed = 2.0f;
-    public float minOrtho = 1.0f;
-    public float maxOrtho = 20.0f;
+    float zoomSpeed = 1;
+    float targetOrtho;
+    float smoothSpeed = 2.0f;
+    float minOrtho = 1.0f;
+    float maxOrtho = 20.0f;
+
+    Vector2 minXY;
+    Vector2 maxXY;
 
     void Start()
     {
         targetOrtho = Camera.main.orthographicSize;
     }
 
+    public void Test()
+    {
+        Vector3 pos = MapCreation.Instance.mapGameobjects[0].transform.localPosition;
+        Vector3 pos2 = MapCreation.Instance.mapGameobjects[MapCreation.Instance.mapGameobjects.Count - 1].transform.localPosition;
+        var first = MapCreation.Instance.mapGameobjects[0].GetComponent<UISprite>();
+        var last = MapCreation.Instance.mapGameobjects[MapCreation.Instance.mapGameobjects.Count-1].GetComponent<UISprite>();
+        minXY.x = pos.x + first.width + first.width / 2;
+        maxXY.x = pos2.x + last.width/2 - Camera.main.pixelWidth/2;
+
+        maxXY.y = pos.y - first.height / 2;
+        minXY.y = pos2.y + last.height + last.height/2 - Camera.main.pixelHeight / 2;
+    }
+
     void Update()
     {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0.0f)
+        {
+            targetOrtho -= scroll * zoomSpeed;
+            targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
+        }
+
+        Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, targetOrtho, smoothSpeed * Time.deltaTime);
+
+
         if (Input.GetMouseButtonDown(0))
         {
             dragOrigin = Input.mousePosition;
@@ -30,18 +56,23 @@ public class CameraMovementByMouse : MonoBehaviour
 
         Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
         Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed,0);
-
         transform.Translate(-move, Space.World);
 
-
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(scroll);
-        if (scroll != 0.0f)
+        if (transform.localPosition.x < minXY.x)
         {
-            targetOrtho -= scroll * zoomSpeed;
-            targetOrtho = Mathf.Clamp(targetOrtho, minOrtho, maxOrtho);
+            transform.localPosition = new Vector3(minXY.x+1, transform.localPosition.y, transform.localPosition.z);
         }
-
-        Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, targetOrtho, smoothSpeed * Time.deltaTime);
+        if (transform.localPosition.x > maxXY.x)
+        {
+            transform.localPosition = new Vector3(maxXY.x-1, transform.localPosition.y, transform.localPosition.z);
+        }
+        if (transform.localPosition.y < minXY.y)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, minXY.y + 1, transform.localPosition.z);
+        }
+        if (transform.localPosition.y > maxXY.y)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, maxXY.y - 1, transform.localPosition.z);
+        }
     }
 }

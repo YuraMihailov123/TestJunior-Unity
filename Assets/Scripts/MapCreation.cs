@@ -36,9 +36,8 @@ public class MapCreation : MonoBehaviour
 
     MapObject[] mapObjects;
 
-    //List<Texture2D> texturesMap2Ds;
 
-    List<GameObject> mapGameobjects;
+    public List<GameObject> mapGameobjects;
 
     string map1 = "testing_views_settings_normal_level";
     string map2 = "testing_views_settings_hard_level";
@@ -47,7 +46,6 @@ public class MapCreation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //texturesMap2Ds = new List<Texture2D>(Resources.LoadAll<Texture2D>("sprites"));
 
         mapPrefab = Resources.Load<GameObject>("prefabs/mapPrefab");
 
@@ -81,6 +79,7 @@ public class MapCreation : MonoBehaviour
             uiSprite.width = (int)(width * 100)+1;
             mapGameobjects.Add(currentCell);
         }
+        Camera.main.GetComponent<CameraMovementByMouse>().Test();
     }
 
     public string FindLeftSidedObjectToCameraLeftCorner()
@@ -98,7 +97,6 @@ public class MapCreation : MonoBehaviour
                 minDist = dist;
                 index = i;
             }
-            //Debug.Log(i + " - " + pos + " - " + pos.magnitude);
         }
         result = mapGameobjects[index].GetComponent<UISprite>().spriteName;
         return result;
