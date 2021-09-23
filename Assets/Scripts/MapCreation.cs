@@ -79,7 +79,7 @@ public class MapCreation : MonoBehaviour
             uiSprite.width = (int)(width * 100)+1;
             mapGameobjects.Add(currentCell);
         }
-        Camera.main.GetComponent<CameraMovementByMouse>().Test();
+        CameraMovementByMouse.Instance.CalculateBorders();
     }
 
     public string FindLeftSidedObjectToCameraLeftCorner()

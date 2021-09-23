@@ -18,6 +18,7 @@ public class MapUI : MonoBehaviour
 
     public void OnSettingsPressed()
     {
+        CameraMovementByMouse.Instance.LockUnlockMovement();
         var leftSidedSprite = MapCreation.Instance.FindLeftSidedObjectToCameraLeftCorner();
         infoWindowLabel.text = leftSidedSprite;
         infoWindow.SetActive(true);
@@ -25,6 +26,7 @@ public class MapUI : MonoBehaviour
 
     public void OnOkPressed()
     {
+        CameraMovementByMouse.Instance.LockUnlockMovement();
         infoWindow.SetActive(false);
     }
 }
