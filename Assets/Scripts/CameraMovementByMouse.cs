@@ -69,7 +69,7 @@ public class CameraMovementByMouse : MonoBehaviour
 
     public void HandleBorders()
     {
-        if (transform.localPosition.x < minXY.x / Camera.main.orthographicSize)
+        if (transform.localPosition.x < minXY.x * Camera.main.orthographicSize)
         {
             transform.localPosition = new Vector3(minXY.x * Camera.main.orthographicSize + 1, transform.localPosition.y, transform.localPosition.z);
         }
@@ -81,7 +81,7 @@ public class CameraMovementByMouse : MonoBehaviour
         {
             transform.localPosition = new Vector3(transform.localPosition.x, minXY.y / Camera.main.orthographicSize + 1, transform.localPosition.z);
         }
-        if (transform.localPosition.y > maxXY.y / Camera.main.orthographicSize)
+        if (transform.localPosition.y > maxXY.y * Camera.main.orthographicSize)
         {
             transform.localPosition = new Vector3(transform.localPosition.x, maxXY.y * Camera.main.orthographicSize  - 1, transform.localPosition.z);
         }
