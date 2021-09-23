@@ -36,7 +36,7 @@ public class MapCreation : MonoBehaviour
 
     MapObject[] mapObjects;
 
-    List<Texture2D> texturesMap2Ds;
+    //List<Texture2D> texturesMap2Ds;
 
     List<GameObject> mapGameobjects;
 
@@ -47,7 +47,7 @@ public class MapCreation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        texturesMap2Ds = new List<Texture2D>(Resources.LoadAll<Texture2D>("sprites"));
+        //texturesMap2Ds = new List<Texture2D>(Resources.LoadAll<Texture2D>("sprites"));
 
         mapPrefab = Resources.Load<GameObject>("prefabs/mapPrefab");
 
@@ -77,8 +77,8 @@ public class MapCreation : MonoBehaviour
             currentCell.transform.localPosition = new Vector3((float)x * 100, (float)y * 100, 0);
             var uiSprite = currentCell.GetComponent<UISprite>();
             uiSprite.spriteName = id;
-            uiSprite.height = (int)(height * 100);
-            uiSprite.width = (int)(width * 100);
+            uiSprite.height = (int)(height * 100)+1;
+            uiSprite.width = (int)(width * 100)+1;
             mapGameobjects.Add(currentCell);
         }
     }
@@ -98,7 +98,7 @@ public class MapCreation : MonoBehaviour
                 minDist = dist;
                 index = i;
             }
-            Debug.Log(i + " - " + pos + " - " + pos.magnitude);
+            //Debug.Log(i + " - " + pos + " - " + pos.magnitude);
         }
         result = mapGameobjects[index].GetComponent<UISprite>().spriteName;
         return result;
