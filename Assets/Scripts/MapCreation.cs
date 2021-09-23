@@ -83,10 +83,10 @@ public class MapCreation : MonoBehaviour
         }
     }
 
-    public UISprite FindLeftSidedObjectToCameraLeftCorner()
+    public string FindLeftSidedObjectToCameraLeftCorner()
     {
-        UISprite result = mapGameobjects[0].GetComponent<UISprite>();
-        var minDist = int.MaxValue;
+        string result = "None";
+        float minDist = float.MaxValue;
         var index = 0;
         for(int i = 0; i < mapGameobjects.Count; i++)
         {
@@ -94,10 +94,13 @@ public class MapCreation : MonoBehaviour
             pos = new Vector3(pos.x, 1 - pos.y, pos.z);
             var dist = pos.magnitude;
             if (dist < minDist)
+            {
                 minDist = dist;
+                index = i;
+            }
             Debug.Log(i + " - " + pos + " - " + pos.magnitude);
         }
-
+        result = mapGameobjects[index].GetComponent<UISprite>().spriteName;
         return result;
     }
 }
