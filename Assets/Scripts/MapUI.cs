@@ -20,7 +20,7 @@ public class MapUI : MonoBehaviour
     {
         if (!infoWindow.activeInHierarchy)
         {
-            CameraMovementByMouse.Instance.LockUnlockMovement();
+            CameraController.Instance.LockUnlockMovement();
             var leftSidedSprite = MapCreation.Instance.FindLeftSidedObjectToCameraLeftCorner();
             infoWindowLabel.text = leftSidedSprite;
             infoWindow.SetActive(true);
@@ -29,7 +29,7 @@ public class MapUI : MonoBehaviour
 
     public void OnOkPressed()
     {
-        CameraMovementByMouse.Instance.LockUnlockMovement();
+        CameraController.Instance.LockUnlockMovement();
         infoWindow.SetActive(false);
     }
 }

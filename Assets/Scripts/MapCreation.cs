@@ -73,13 +73,15 @@ public class MapCreation : MonoBehaviour
             
             var currentCell = transform.AddChild(mapPrefab);
             currentCell.transform.localPosition = new Vector3((float)x * 100, (float)y * 100, 0);
+
             var uiSprite = currentCell.GetComponent<UISprite>();
             uiSprite.spriteName = id;
             uiSprite.height = (int)(height * 100)+1;
             uiSprite.width = (int)(width * 100)+1;
+
             mapGameobjects.Add(currentCell);
         }
-        CameraMovementByMouse.Instance.CalculateBorders();
+        CameraController.Instance.CalculateBorders();
     }
 
     public string FindLeftSidedObjectToCameraLeftCorner()

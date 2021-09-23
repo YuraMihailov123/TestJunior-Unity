@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 303841594}
   - component: {fileID: 303841593}
   - component: {fileID: 303841596}
+  - component: {fileID: 303841597}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -442,6 +443,19 @@ MonoBehaviour:
   dragSpeed: 2
   minXY: {x: 0, y: 0}
   maxXY: {x: 0, y: 0}
+  isLockedMovement: 0
+--- !u!114 &303841597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303841591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a0430ccdd734ec69df1974c8ea787d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &499830769
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +560,6 @@ GameObject:
   - component: {fileID: 522257374}
   - component: {fileID: 522257378}
   - component: {fileID: 522257377}
-  - component: {fileID: 522257376}
   m_Layer: 5
   m_Name: UICamera
   m_TagString: Untagged
@@ -569,14 +582,6 @@ Transform:
   m_Father: {fileID: 2005307550}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &522257376
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522257373}
-  m_Enabled: 1
 --- !u!114 &522257377
 MonoBehaviour:
   m_ObjectHideFlags: 0
