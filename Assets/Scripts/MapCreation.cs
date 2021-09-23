@@ -49,7 +49,7 @@ public class MapCreation : MonoBehaviour
 
         mapPrefab = Resources.Load<GameObject>("prefabs/mapPrefab");
 
-        path = Application.dataPath + "/Resources/maps/" + map1 + ".json";
+        path = Application.dataPath + "/Resources/maps/" + map2 + ".json";
         jsonString = File.ReadAllText(path);
 
         mapObjects = JsonConverter.FromJson<MapObject>(jsonString);
@@ -62,8 +62,20 @@ public class MapCreation : MonoBehaviour
 
     void GenerateMap()
     {
+        MapObject prevObject = mapObjects[0];
         for(int i = 0; i < mapObjects.Length; i++)
         {
+            if (i > 0)
+            {
+                if (prevObject.Y == mapObjects[i].Y)
+                {
+                    if (Mathf.Abs((float)(prevObject.X - mapObjects[i].X)) != (float)mapObjects[i].Width)
+                    {
+                        mapObjects[i].X = prevObject.X + prevObject.Width/2 + mapObjects[i].Width/2;
+                    }
+                }
+            }
+
             var id = mapObjects[i].Id;
             var type = mapObjects[i].Type;
             var x = mapObjects[i].X;
@@ -73,6 +85,8 @@ public class MapCreation : MonoBehaviour
             
             var currentCell = transform.AddChild(mapPrefab);
             currentCell.transform.localPosition = new Vector3((float)x * 100, (float)y * 100, 0);
+            
+
 
             var uiSprite = currentCell.GetComponent<UISprite>();
             uiSprite.spriteName = id;
@@ -80,6 +94,7 @@ public class MapCreation : MonoBehaviour
             uiSprite.width = (int)(width * 100)+1;
 
             mapGameobjects.Add(currentCell);
+            prevObject = mapObjects[i];
         }
         CameraController.Instance.CalculateBorders();
     }
