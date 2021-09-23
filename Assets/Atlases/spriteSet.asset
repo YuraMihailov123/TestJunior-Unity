@@ -15,7 +15,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 482e1263cdd1a42659e2a81dfea5f130, type: 2}
   mSprites:
   - name: au19_bg_0_0_d
-    x: 0
+    x: 1539
     y: 3584
     width: 512
     height: 512
@@ -42,7 +42,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: au19_bg_0_2_d
     x: 0
-    y: 2558
+    y: 3071
     width: 512
     height: 512
     borderLeft: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_0_3_d
-    x: 3078
+    x: 2052
     y: 3584
     width: 512
     height: 512
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_0_4_d
-    x: 0
-    y: 1532
+    x: 1026
+    y: 3584
     width: 512
     height: 512
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_0_6_d
-    x: 2052
-    y: 3071
+    x: 0
+    y: 1019
     width: 512
     height: 512
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_0_7_d
-    x: 0
-    y: 506
+    x: 513
+    y: 3071
     width: 512
     height: 512
     borderLeft: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_0_8_d
-    x: 3853
+    x: 3722
     y: 3584
     width: 130
     height: 512
@@ -132,6 +132,32 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_1_0_d
+    x: 1539
+    y: 3071
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: au19_bg_1_1_d
+    x: 2052
+    y: 3071
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: au19_bg_1_2_d
     x: 513
     y: 1019
     width: 512
@@ -144,35 +170,9 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: au19_bg_1_1_d
-    x: 513
-    y: 3584
-    width: 512
-    height: 512
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: au19_bg_1_2_d
-    x: 1539
-    y: 3584
-    width: 512
-    height: 512
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
   - name: au19_bg_1_3_d
-    x: 513
-    y: 3071
+    x: 0
+    y: 2558
     width: 512
     height: 512
     borderLeft: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: au19_bg_1_4_d
     x: 0
-    y: 1019
+    y: 506
     width: 512
     height: 512
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_1_5_d
-    x: 2052
-    y: 3584
+    x: 513
+    y: 1532
     width: 512
     height: 512
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_1_6_d
-    x: 513
-    y: 2045
+    x: 2565
+    y: 3071
     width: 512
     height: 512
     borderLeft: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: au19_bg_1_7_d
     x: 513
-    y: 1532
+    y: 2558
     width: 512
     height: 512
     borderLeft: 0
@@ -249,32 +249,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_2_0_h
-    x: 0
-    y: 2045
-    width: 512
-    height: 512
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: au19_bg_2_1_d
-    x: 0
-    y: 3071
-    width: 512
-    height: 512
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: au19_bg_2_2_d
     x: 513
     y: 506
     width: 512
@@ -287,9 +261,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: au19_bg_2_1_d
+    x: 513
+    y: 3584
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: au19_bg_2_2_d
+    x: 0
+    y: 2045
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: au19_bg_2_3_d
-    x: 2565
-    y: 3071
+    x: 0
+    y: 3584
     width: 512
     height: 512
     borderLeft: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_2_4_d
-    x: 1026
-    y: 3071
+    x: 3078
+    y: 3584
     width: 512
     height: 512
     borderLeft: 0
@@ -315,19 +315,6 @@ MonoBehaviour:
     paddingBottom: 0
   - name: au19_bg_2_5_d
     x: 1026
-    y: 3584
-    width: 512
-    height: 512
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: au19_bg_2_6_d
-    x: 1539
     y: 3071
     width: 512
     height: 512
@@ -339,9 +326,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: au19_bg_2_7_d
+  - name: au19_bg_2_6_d
     x: 513
-    y: 2558
+    y: 2045
+    width: 512
+    height: 512
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: au19_bg_2_7_d
+    x: 0
+    y: 1532
     width: 512
     height: 512
     borderLeft: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: au19_bg_2_8_d
-    x: 3722
+    x: 3853
     y: 3584
     width: 130
     height: 512
