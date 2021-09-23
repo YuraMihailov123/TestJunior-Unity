@@ -9,8 +9,8 @@ public class MapObject
     
     public string Id;
     public string Type;
-    public string X;
-    public string Y;
-    public string Width;
-    public string Height;
+    public double X;
+    public double Y;
+    public double Width;
+    public double Height;
 }
