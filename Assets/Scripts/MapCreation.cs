@@ -6,16 +6,39 @@ using UnityEngine;
 
 public class MapCreation : MonoBehaviour
 {
+    #region Singleton
+    private static MapCreation _instance;
+    public static MapCreation Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
+    }
+
+    #endregion
+
     [SerializeField]
     string path;
+
     [SerializeField]
     string jsonString;
-    [SerializeField]
-    List<Texture2D> texturesMap2Ds;
+
     [SerializeField]
     GameObject mapPrefab;
 
     MapObject[] mapObjects;
+
+    List<Texture2D> texturesMap2Ds;
+
+    List<GameObject> mapGameobjects;
 
     string map1 = "testing_views_settings_normal_level";
     string map2 = "testing_views_settings_hard_level";
@@ -33,20 +56,11 @@ public class MapCreation : MonoBehaviour
 
         mapObjects = JsonConverter.FromJson<MapObject>(jsonString);
 
+        mapGameobjects = new List<GameObject>();
+
         GenerateMap();
     }
 
-    Texture2D FindSpriteById(string id)
-    {
-        for (int i = 0; i < texturesMap2Ds.Count; i++)
-        {
-            if (texturesMap2Ds[i].name == id)
-            {
-                return texturesMap2Ds[i];
-            }
-        }
-        return null;
-    }
 
     void GenerateMap()
     {
@@ -58,14 +72,32 @@ public class MapCreation : MonoBehaviour
             var y = mapObjects[i].Y;
             var width = mapObjects[i].Width;
             var height = mapObjects[i].Height;
-            Debug.Log(x);
             
-            var currentCell = transform.AddChild(mapPrefab);//, new Vector3((float)x * 100, (float)y * 100, 0), Quaternion.identity, transform);
+            var currentCell = transform.AddChild(mapPrefab);
             currentCell.transform.localPosition = new Vector3((float)x * 100, (float)y * 100, 0);
             var uiSprite = currentCell.GetComponent<UISprite>();
             uiSprite.spriteName = id;
             uiSprite.height = (int)(height * 100);
             uiSprite.width = (int)(width * 100);
+            mapGameobjects.Add(currentCell);
         }
+    }
+
+    public UISprite FindLeftSidedObjectToCameraLeftCorner()
+    {
+        UISprite result = mapGameobjects[0].GetComponent<UISprite>();
+        var minDist = int.MaxValue;
+        var index = 0;
+        for(int i = 0; i < mapGameobjects.Count; i++)
+        {
+            Vector3 pos = Camera.main.WorldToViewportPoint(mapGameobjects[i].transform.position);
+            pos = new Vector3(pos.x, 1 - pos.y, pos.z);
+            var dist = pos.magnitude;
+            if (dist < minDist)
+                minDist = dist;
+            Debug.Log(i + " - " + pos + " - " + pos.magnitude);
+        }
+
+        return result;
     }
 }

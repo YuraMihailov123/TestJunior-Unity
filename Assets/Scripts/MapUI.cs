@@ -15,6 +15,7 @@ public class MapUI : MonoBehaviour
 
     public void OnSettingsPressed()
     {
+        MapCreation.Instance.FindLeftSidedObjectToCameraLeftCorner();
         infoWindow.SetActive(true);
     }
 }
